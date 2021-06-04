@@ -44,27 +44,23 @@ const AppPicker = ({
         </View>
       </TouchableWithoutFeedback>
       <Modal visible={modalVisible} animationType='slide'>
-        {/* 
-        // for ios
         <Screen>
           <Button title='Close' onPress={() => setModalVisible(false)} />
-        </Screen> */}
 
-        <Button title='Close' onPress={() => setModalVisible(false)} />
-
-        <FlatList
-          data={items}
-          keyExtractor={(item) => item.value.toString()}
-          renderItem={({ item }) => (
-            <PickerItem
-              label={item.label}
-              onPress={() => {
-                setModalVisible(false);
-                onSelectItem(item);
-              }}
-            />
-          )}
-        />
+          <FlatList
+            data={items}
+            keyExtractor={(item) => item.value.toString()}
+            renderItem={({ item }) => (
+              <PickerItem
+                label={item.label}
+                onPress={() => {
+                  setModalVisible(false);
+                  onSelectItem(item);
+                }}
+              />
+            )}
+          />
+        </Screen>
       </Modal>
     </>
   );
