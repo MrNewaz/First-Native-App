@@ -27,6 +27,7 @@ const LoginScreen = () => {
         autoCorrect={false}
         icon='lock'
         name='password'
+        onChangeText={(text) => setPassword(text)}
         placeholder='Password'
         secureTextEntry
         textContentType='password'
