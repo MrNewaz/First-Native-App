@@ -75,7 +75,7 @@ const categories = [
   },
 ];
 
-function ListingEditScreen() {
+const ListingEditScreen = () => {
   return (
     <Screen style={styles.container}>
       <Form
@@ -113,7 +113,7 @@ function ListingEditScreen() {
       </Form>
     </Screen>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

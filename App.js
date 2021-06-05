@@ -1,9 +1,8 @@
 import React from 'react';
-import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
+import AccountScreen from './app/screens/AccountScreen';
 
-import ListingEditScreen from './app/screens/ListingEditScreen';
-import MessagesScreen from './app/screens/MessagesScreen';
+const App = () => {
+  return <AccountScreen />;
+};
 
-export default function App() {
-  return <ListingEditScreen />;
-}
+export default App;
