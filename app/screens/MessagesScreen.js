@@ -8,14 +8,14 @@ import Screen from '../components/Screen';
 const initialMessages = [
   {
     id: 1,
-    title: 'T1',
-    description: 'D1',
-    image: require('../assets/mosh.jpg'),
+    title: 'Hey, This is Newaz',
+    description: 'Nice to meet you!',
+    image: require('../assets/saif.png'),
   },
   {
     id: 2,
-    title: 'T2',
-    description: 'D2',
+    title: 'Mosh Here',
+    description: 'React Native...yeet!',
     image: require('../assets/mosh.jpg'),
   },
 ];
@@ -46,14 +46,7 @@ const MessagesScreen = () => {
         ItemSeparatorComponent={ListSeparator}
         refreshing={refreshing}
         onRefresh={() => {
-          setMessages([
-            {
-              id: 2,
-              title: 'T2',
-              description: 'D2',
-              image: require('../assets/mosh.jpg'),
-            },
-          ]);
+          setMessages(initialMessages);
         }}
       />
     </Screen>
