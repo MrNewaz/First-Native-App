@@ -7,7 +7,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 const Link = () => {
   const navigation = useNavigation();
   return (
-    <Button title='Click' onPress={() => navigation.navigate('TweetDetails')} />
+    <Button
+      title='Click'
+      onPress={() => navigation.navigate('TweetDetails', { id: 1 })}
+    />
   );
 };
 
@@ -20,10 +23,10 @@ const Tweets = ({ navigation }) => {
   );
 };
 
-const TweetDetails = () => {
+const TweetDetails = ({ route }) => {
   return (
     <Screen>
-      <Text>Tweet Details</Text>
+      <Text>Tweet Details {route.params.id}</Text>
     </Screen>
   );
 };
@@ -33,7 +36,13 @@ const StackNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name='Tweets' component={Tweets} />
-      <Stack.Screen name='TweetDetails' component={TweetDetails} />
+      <Stack.Screen
+        name='TweetDetails'
+        component={TweetDetails}
+        options={({ route }) => ({
+          title: route.params.id,
+        })}
+      />
     </Stack.Navigator>
   );
 };
