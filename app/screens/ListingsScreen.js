@@ -23,7 +23,7 @@ const ListingsScreen = ({ navigation }) => {
     <Screen style={styles.screen}>
       <FlatList
         data={listings}
-        keyExtractor={(listing) => listing.id.toString()}
+        keyExtractor={(listing) => listing?.id?.toString()}
         renderItem={({ item }) => (
           <Card
             title={item.title}
