@@ -8,22 +8,20 @@ import Card from '../components/Card';
 import colors from '../config/colors';
 import AppText from '../components/AppText';
 import AppButton from '../components/AppButton';
+import ActivityIndicator from '../components/ActivityIndicator';
+import useApi from '../hooks/useApi';
 
 const ListingsScreen = ({ navigation }) => {
-  const [listings, setListings] = useState([]);
-  const [error, setError] = useState(false);
+  const {
+    request: loadListings,
+    data: listings,
+    error,
+    loading,
+  } = useApi(listingsApi.getListings);
 
   useEffect(() => {
     loadListings();
   }, []);
-
-  const loadListings = async () => {
-    const response = await listingsApi.getListings();
-    if (!response.ok) return setError(true);
-
-    setError(false);
-    setListings(response.data);
-  };
 
   return (
     <Screen style={styles.screen}>
@@ -33,6 +31,7 @@ const ListingsScreen = ({ navigation }) => {
           <AppButton title='Retry' onPress={loadListings}></AppButton>
         </>
       )}
+      <ActivityIndicator visible={loading} />
       <FlatList
         data={listings}
         keyExtractor={(listing) => listing?.id?.toString()}
