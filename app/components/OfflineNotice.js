@@ -6,8 +6,8 @@ import colors from '../config/colors';
 import AppText from './AppText';
 
 const OfflineNotice = () => {
-  const netinfo = useNetInfo();
-  if (netinfo.type !== 'unknown' && netinfo.isInternetReachable === false) {
+  const netInfo = useNetInfo();
+  if (netInfo.type !== 'unknown' && netInfo.isInternetReachable === false) {
     return (
       <View style={styles.container}>
         <AppText style={styles.text}>No Internet Connection</AppText>
