@@ -10,7 +10,7 @@ const store = async (key, value) => {
       value,
       timestamp: Date.now(),
     };
-    await AsyncStorage.set(prefix + key, JSON.stringify(item));
+    await AsyncStorage.setItem(prefix + key, JSON.stringify(item));
   } catch (error) {
     console.log(error);
   }
@@ -18,8 +18,8 @@ const store = async (key, value) => {
 
 const isExpired = (item) => {
   const now = moment(Date.now());
-  const storagedTime = moment(item.timestamp); //
-  return now.diff(storagedTime, 'minutes') > expiryInMinutes;
+  const storedTime = moment(item.timestamp);
+  return now.diff(storedTime, 'minutes') > expiryInMinutes;
 };
 
 const get = async (key) => {
@@ -30,11 +30,12 @@ const get = async (key) => {
     if (!item) return null;
 
     if (isExpired(item)) {
+      // Command Query Separation (CQS)
       await AsyncStorage.removeItem(prefix + key);
       return null;
     }
 
-    return item;
+    return item.value;
   } catch (error) {
     console.log(error);
   }
