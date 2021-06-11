@@ -14,7 +14,7 @@ const ListingDetailsScreen = ({ route }) => {
         <AppText style={styles.price}>{listing.price}৳</AppText>
         <View style={styles.userContainer}>
           <ListItem
-            image={require('../assets/mosh.jpg')}
+            image={require('../assets/saif.png')}
             title='Saif Newaz'
             subTitle='5 listings'
           />
