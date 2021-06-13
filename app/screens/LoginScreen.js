@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Image, StyleSheet } from 'react-native';
 import * as yup from 'yup';
 import jwtDecode from 'jwt-decode';
@@ -12,7 +12,7 @@ import {
 } from '../components/forms';
 import authApi from '../api/auth';
 import AuthContext from '../auth/context';
-import { useContext } from 'react';
+import authStorage from '../auth/storage';
 
 const validationSchemea = yup.object().shape({
   email: yup.string().required().email().label('Email'),
@@ -33,6 +33,7 @@ const LoginScreen = () => {
     setLoginFailed(false);
     const user = jwtDecode(result.data);
     authContext.setUser(user);
+    authStorage.storeToken(result.data);
   };
 
   return (
