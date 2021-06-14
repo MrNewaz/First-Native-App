@@ -1,9 +1,10 @@
 import { create } from 'apisauce';
 import cache from '../utility/cache';
-import authStorage from '../auth/storage';
+// import authStorage from '../auth/storage';
+import settings from '../utility/settings';
 
 const apiClient = create({
-  baseURL: 'http://192.168.0.108:9000/api',
+  baseURL: 'https://beche-de.herokuapp.com/api',
 });
 
 // apiClient.addAsyncRequestTransform(async (request) => {
