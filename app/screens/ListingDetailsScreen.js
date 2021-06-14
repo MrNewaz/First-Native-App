@@ -1,35 +1,48 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  KeyboardAvoidingView,
+  Platform,
+  Keyboard,
+} from 'react-native';
 import { Image } from 'react-native-expo-image-cache';
 
-import AppText from '../components/AppText';
-import { ListItem } from '../components/lists';
 import colors from '../config/colors';
+import ContactSellerForm from '../components/ContactSellerForm';
+import ListItem from '../components/lists/ListItem';
+import AppText from '../components/AppText';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
-const ListingDetailsScreen = ({ route }) => {
+function ListingDetailsScreen({ route }) {
   const listing = route.params;
+
   return (
-    <View>
+    <KeyboardAvoidingView
+      behavior='position'
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 100}
+    >
       <Image
         style={styles.image}
-        tint='light'
         preview={{ uri: listing.images[0].thumbnailUrl }}
+        tint='light'
         uri={listing.images[0].url}
       />
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}>{listing.title}</AppText>
-        <AppText style={styles.price}>{listing.price}৳</AppText>
+        <AppText style={styles.price}>${listing.price}</AppText>
         <View style={styles.userContainer}>
           <ListItem
             image={require('../assets/saif.png')}
             title='Saif Newaz'
-            subTitle='5 listings'
+            subTitle='5 Listings'
           />
         </View>
+        <ContactSellerForm listing={listing} />
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   detailsContainer: {
@@ -45,7 +58,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginVertical: 10,
   },
-
   title: {
     fontSize: 24,
     fontWeight: '500',
