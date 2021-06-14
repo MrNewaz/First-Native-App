@@ -34,10 +34,7 @@ const LoginScreen = () => {
 
   return (
     <Screen style={styles.container}>
-      <Image
-        style={styles.logo}
-        source={require('../assets/logo-circle.png')}
-      />
+      <Image style={styles.logo} source={require('../assets/logo.png')} />
       <ErrorMessage
         error='Invalid email and/or password.'
         visible={loginFailed}

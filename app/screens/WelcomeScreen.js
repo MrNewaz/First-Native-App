@@ -11,10 +11,7 @@ const WelcomeScreen = ({ navigation }) => {
       source={require('../assets/background.jpg')}
     >
       <View style={styles.logoContainer}>
-        <Image
-          style={styles.logo}
-          source={require('../assets/logo-circle.png')}
-        />
+        <Image style={styles.logo} source={require('../assets/logo.png')} />
         <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
       <View style={styles.buttonContainer}>
