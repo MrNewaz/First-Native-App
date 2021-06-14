@@ -9,6 +9,7 @@ import {
 import colors from '../config/colors';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
+import logger from '../utility/logger';
 
 const ImageInput = ({ imageUri, onChangeImage }) => {
   useEffect(() => {
@@ -45,7 +46,7 @@ const ImageInput = ({ imageUri, onChangeImage }) => {
         onChangeImage(result.uri);
       }
     } catch (error) {
-      console.log('Error reading an Image', error);
+      logger.log(error);
     }
   };
   return (

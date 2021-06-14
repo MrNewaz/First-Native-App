@@ -39,7 +39,7 @@ const MessagesScreen = () => {
             title={item.title}
             subTitle={item.description}
             image={item.image}
-            onPress={() => console.log('Hmmm', item)}
+            onPress={() => alert('Shetai')}
             renderRightActions={() => (
               <ListItemDeleteAction onPress={() => handleDelete(item)} />
             )}

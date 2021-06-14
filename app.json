@@ -26,6 +26,11 @@
     "web": {
       "favicon": "./app/assets/favicon.png"
     },
-    "description": "Me just learning about react native\n"
+    "description": "Me just learning about react native\n",
+    "extra": {
+      "bugsnag": {
+        "apiKey": "1e82a2d9d7a4dba83ffec3c84ec3ec11"
+      }
+    }
   }
 }
